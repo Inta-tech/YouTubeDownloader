@@ -1,0 +1,13 @@
+﻿build/
+dist/
+*.spec
+__pycache__/
+.idea/
+.venv/
+*.exe
+ffmpeg.exe
+ffprobe.exe
+ffplay.exe
+*.part
+*.ytdl
+*.temp
