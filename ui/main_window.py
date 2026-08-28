@@ -83,8 +83,8 @@ class DownloaderWindow(QWidget):
     def setup_ui(self):
         self.setWindowTitle("YouTube Downloader")
 
-        self.resize(580, 560)
-        self.setMinimumSize(500, 500)
+        self.resize(580, 620)
+        self.setMinimumSize(520, 580)
 
         main_layout = QVBoxLayout()
         main_layout.setContentsMargins(24, 20, 24, 20)
@@ -112,15 +112,15 @@ class DownloaderWindow(QWidget):
         url_card = QFrame()
         url_card.setObjectName("card")
         url_layout = QVBoxLayout(url_card)
-        url_layout.setContentsMargins(16, 12, 16, 14)
-        url_layout.setSpacing(6)
+        url_layout.setContentsMargins(16, 12, 16, 16)
+        url_layout.setSpacing(8)
 
         url_label = QLabel("VIDEO URL")
         url_label.setStyleSheet("color: #aeb4bf; font-size: 10px; font-weight: 700; letter-spacing: 1px;")
 
         self.url_input = QLineEdit()
         self.url_input.setPlaceholderText("Paste a YouTube link here...")
-        self.url_input.setMinimumHeight(38)
+        self.url_input.setFixedHeight(40)
         self.url_input.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
 
         url_layout.addWidget(url_label)
@@ -186,14 +186,14 @@ class DownloaderWindow(QWidget):
         quality_card = QFrame()
         quality_card.setObjectName("card")
         quality_layout = QVBoxLayout(quality_card)
-        quality_layout.setContentsMargins(16, 12, 16, 14)
-        quality_layout.setSpacing(6)
+        quality_layout.setContentsMargins(16, 12, 16, 16)
+        quality_layout.setSpacing(8)
 
         quality_label = QLabel("QUALITY")
         quality_label.setStyleSheet("color: #aeb4bf; font-size: 10px; font-weight: 700; letter-spacing: 1px;")
 
         self.quality_combo = QComboBox()
-        self.quality_combo.setMinimumHeight(38)
+        self.quality_combo.setFixedHeight(40)
         self.quality_combo.addItem("Select Video or Audio")
 
         quality_layout.addWidget(quality_label)
@@ -266,8 +266,14 @@ class DownloaderWindow(QWidget):
         footer.setAlignment(Qt.AlignCenter)
         footer.setStyleSheet("color: #626a77; font-size: 10px;")
 
+        # Developer Credit
+        credit = QLabel("Developed by Intasar Mostafiz")
+        credit.setAlignment(Qt.AlignCenter)
+        credit.setStyleSheet("color: #aeb4bf; font-size: 11px; font-weight: bold;")
+
         main_layout.addStretch()
         main_layout.addWidget(footer)
+        main_layout.addWidget(credit)
         self.setLayout(main_layout)
 
         # Stylesheet
@@ -281,6 +287,8 @@ class DownloaderWindow(QWidget):
             QPushButton:checked { background-color: #21131a; border: 1px solid #ff375f; color: #ffffff; }
             QPushButton:disabled { background-color: #15181f; border: 1px solid #222731; color: #555c68; }
             QComboBox { background-color: #0f1218; border: 1px solid #2a303b; border-radius: 8px; padding: 0 12px; color: #f5f7fa; }
+            QComboBox::drop-down { border: none; padding-right: 12px; }
+            QComboBox QAbstractItemView { background-color: #14171e; border: 1px solid #252a34; selection-background-color: #21131a; selection-color: #ff375f; }
             QProgressBar { background-color: #171a22; border: none; border-radius: 4px; }
             QProgressBar::chunk { background-color: #ff375f; border-radius: 4px; }
         """)
